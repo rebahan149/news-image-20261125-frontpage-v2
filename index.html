@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The Midweek World — Wednesday 25 November 2026</title>
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html,body { width:1024px; height:1024px; }
+  body {
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f7f2e7; color:#191919;
+    padding:14px 26px 0 26px;
+    overflow:hidden;
+  }
+  .topstrip {
+    display:flex; justify-content:space-between; align-items:baseline;
+    border-bottom:3px double #191919; padding-bottom:5px;
+  }
+  .topstrip .brand { font-weight:900; letter-spacing:3px; font-size:13px; }
+  .topstrip .meta { font-size:10.5px; letter-spacing:1.6px; font-weight:700; color:#333; }
+  .masthead { text-align:center; padding-top:7px; }
+  .masthead .date {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size:46px; font-weight:700; letter-spacing:.5px; line-height:1.02;
+  }
+  .masthead .top3 {
+    color:#b3231b; font-style:italic; font-family: Georgia, serif;
+    font-size:14.5px; margin-top:5px;
+  }
+  .stats {
+    display:flex; border-top:2px solid #191919; border-bottom:2px solid #191919;
+    margin-top:7px; padding:5px 0 6px 0;
+  }
+  .stat { flex:1; text-align:center; padding:0 4px; }
+  .stat + .stat { border-left:1px solid #c9c0ab; }
+  .stat .num { color:#b3231b; font-weight:900; font-size:24px; line-height:1; }
+  .stat .cap { font-size:8.3px; color:#444; margin-top:3px; line-height:1.25; text-transform:uppercase; letter-spacing:.4px; }
+  .regions { display:flex; margin-top:7px; color:#fff; font-size:10px; font-weight:800; letter-spacing:1.2px; }
+  .regions div { padding:3px 0; text-align:center; }
+  .r-eu { background:#2e5f8a; flex:5; } .r-me { background:#b3231b; flex:7; }
+  .r-af { background:#c77400; flex:4; } .r-ap { background:#2f7d4f; flex:13; }
+  .r-am { background:#5d4a9e; flex:5; } .r-wo { background:#4c554c; flex:2; }
+
+  .heroes { display:flex; gap:14px; margin-top:8px; }
+  .hero { flex:1; }
+  .hero .art { position:relative; border:1.5px solid #191919; }
+  .hero .art svg { display:block; width:100%; height:92px; }
+  .hero .tag {
+    position:absolute; top:7px; left:7px; background:#111; color:#fff;
+    font-size:9.5px; font-weight:800; letter-spacing:1px; padding:3px 7px;
+  }
+  .hero .cap {
+    position:absolute; bottom:7px; left:7px; background:#fff; color:#111;
+    font-size:9px; font-weight:700; padding:2.5px 6px; border:1px solid #111;
+  }
+  .hero .kicker { font-size:9px; font-weight:800; letter-spacing:1.4px; margin-top:6px; }
+  .hero h2 { font-family: Georgia, serif; font-size:16.5px; line-height:1.12; margin-top:2px; }
+  .hero .dek { font-size:9.9px; line-height:1.29; color:#2c2c2c; margin-top:3px; }
+  .hero .src { font-size:8.6px; color:#8a2be2; color:#6d28a8; font-style:italic; margin-top:3px; }
+  .k-af { color:#c77400; } .k-ap { color:#2f7d4f; } .k-me { color:#b3231b; }
+
+  .grid { display:flex; gap:12px; margin-top:11px; }
+  .gcol { flex:1; }
+  .gitem { display:flex; gap:7px; padding:5px 0; border-top:1px solid #d8d0ba; }
+  .gitem:first-child { border-top:none; padding-top:0; }
+  .gnum {
+    background:#b3231b; color:#fff; font-weight:900; font-size:12px;
+    min-width:19px; height:19px; text-align:center; line-height:19px; flex:none;
+  }
+  .gbody h3 { font-size:11.6px; line-height:1.16; }
+  .gbody .loc { font-size:8.2px; font-weight:800; letter-spacing:.8px; color:#555; }
+  .gbody .dek { font-size:9.4px; line-height:1.28; color:#333; margin-top:1px; }
+  .gbody .src { font-size:8.4px; color:#6d28a8; font-style:italic; }
+
+  .bottom { display:flex; gap:16px; margin-top:7px; }
+  .leftcol { width:44%; flex:none; }
+  .rightcol { flex:1; }
+  .panelhead {
+    display:flex; justify-content:space-between; align-items:baseline;
+    border-bottom:2px solid #191919; padding-bottom:3px;
+  }
+  .panelhead .t { font-weight:900; letter-spacing:1.6px; font-size:12px; }
+  .panelhead .thin { font-weight:400; font-size:9px; color:#555; letter-spacing:.4px; }
+  #map { width:100%; height:128px; display:block; margin-top:2px; }
+  .datecheck {
+    border:2px solid #b3231b; padding:6px 8px; margin-top:6px;
+    font-size:8.8px; line-height:1.36; color:#2c2c2c;
+  }
+  .datecheck b { color:#b3231b; letter-spacing:1px; }
+  .briefs { display:flex; gap:14px; margin-top:5px; }
+  .bcol { flex:1; }
+  .brief { font-size:9.2px; line-height:1.25; padding:1.6px 0; border-bottom:1px dotted #c9c0ab; }
+  .brief:last-child { border-bottom:none; }
+  .brief .n { color:#b3231b; font-weight:900; }
+  .brief .loc { font-weight:800; }
+  .brief .src { color:#6d28a8; font-style:italic; font-size:8.7px; }
+  .sources { font-size:8.8px; color:#555; margin-top:5px; }
+  .footer {
+    display:flex; justify-content:space-between; align-items:center;
+    background:#191919; color:#f7f2e7; margin:6px -26px 0 -26px;
+    padding:6px 26px; font-size:11px; font-weight:800; letter-spacing:2px;
+  }
+</style>
+</head>
+<body>
+
+<div class="topstrip">
+  <div class="brand">THE MIDWEEK WORLD</div>
+  <div class="meta">36 STORIES &middot; 6 REGIONS &middot; EVERY ONE DATED WEDNESDAY 25 NOVEMBER 2026</div>
+</div>
+
+<div class="masthead">
+  <div class="date">Wednesday 25 November 2026</div>
+  <div class="top3">Ebola teams pulled from a Congo hospital &middot; Australia signs the Solomons pact in Canberra &middot; A boy of 15 hits 204 off 53 balls</div>
+</div>
+
+<div class="stats">
+  <div class="stat"><div class="num">5,775</div><div class="cap">Ebola deaths in DR Congo's worst outbreak &mdash; No 1</div></div>
+  <div class="stat"><div class="num">204</div><div class="cap">Runs off 53 balls by a 15-year-old &mdash; No 3</div></div>
+  <div class="stat"><div class="num">5,200</div><div class="cap">Heat-linked deaths estimated in England &mdash; No 10</div></div>
+  <div class="stat"><div class="num">5.1</div><div class="cap">Panay quake magnitude, PHIVOLCS &mdash; No 14</div></div>
+  <div class="stat"><div class="num">&pound;2,166</div><div class="cap">Ofgem's new January price cap &mdash; No 23</div></div>
+  <div class="stat"><div class="num">$3,545</div><div class="cap">Gold an ounce before US inflation data &mdash; No 33</div></div>
+</div>
+
+<div class="regions">
+  <div class="r-eu">EUROPE 5</div>
+  <div class="r-me">MIDDLE EAST 7</div>
+  <div class="r-af">AFRICA 4</div>
+  <div class="r-ap">ASIA-PACIFIC 13</div>
+  <div class="r-am">AMERICAS 5</div>
+  <div class="r-wo">WORLD 2</div>
+</div>
+
+<div class="heroes">
+  <div class="hero">
+    <div class="art">
+      <svg viewBox="0 0 300 128" preserveAspectRatio="none">
+        <rect width="300" height="128" fill="#dcebf5"/>
+        <circle cx="262" cy="24" r="13" fill="#f2b705"/>
+        <rect x="0" y="98" width="300" height="30" fill="#cbb98d"/>
+        <rect x="88" y="30" width="124" height="68" fill="#ffffff" stroke="#191919" stroke-width="2"/>
+        <rect x="138" y="8" width="24" height="22" fill="#ffffff" stroke="#191919" stroke-width="2"/>
+        <rect x="146" y="12" width="8" height="14" fill="#b3231b"/>
+        <rect x="143" y="15" width="14" height="8" fill="#b3231b"/>
+        <rect x="98" y="44" width="16" height="16" fill="#9fc3dd"/><rect x="122" y="44" width="16" height="16" fill="#9fc3dd"/>
+        <rect x="162" y="44" width="16" height="16" fill="#9fc3dd"/><rect x="186" y="44" width="16" height="16" fill="#9fc3dd"/>
+        <rect x="140" y="72" width="20" height="26" fill="#7a4a21"/>
+        <rect x="18" y="76" width="52" height="22" fill="#e8e2d2" stroke="#191919" stroke-width="1.5"/>
+        <polygon points="18,76 44,62 70,76" fill="#b3231b"/>
+        <rect x="228" y="80" width="46" height="18" fill="#ffffff" stroke="#191919" stroke-width="1.5"/>
+        <rect x="240" y="86" width="6" height="12" fill="#b3231b"/><rect x="237" y="89" width="12" height="6" fill="#b3231b"/>
+        <circle cx="238" cy="102" r="5" fill="#191919"/><circle cx="264" cy="102" r="5" fill="#191919"/>
+        <circle cx="86" cy="86" r="5" fill="#191919"/><path d="M86 91 v10 M86 95 l-7 4 M86 95 l7 4 M81 108 l5-7 5 7" stroke="#191919" stroke-width="2" fill="none"/>
+        <circle cx="222" cy="86" r="5" fill="#191919"/><path d="M222 91 v10 M222 95 l-7 4 M222 95 l7 4 M217 108 l5-7 5 7" stroke="#191919" stroke-width="2" fill="none"/>
+      </svg>
+      <div class="tag">EBOLA: TEAMS OUT</div>
+      <div class="cap">Akwe hospital, Ituri province</div>
+    </div>
+    <div class="kicker k-af">1 &middot; AKWE, DR CONGO &mdash; AFRICA</div>
+    <h2>Ebola teams pulled out of Congo hospital</h2>
+    <div class="dek">WHO and health-ministry staff sheltered three days in a maternity ward amid fighting in Ituri. The outbreak &mdash; DR Congo's worst &mdash; has killed 5,775 people.</div>
+    <div class="src">WHO chief &middot; UN News</div>
+  </div>
+
+  <div class="hero">
+    <div class="art">
+      <svg viewBox="0 0 300 128" preserveAspectRatio="none">
+        <rect width="300" height="128" fill="#cfe8f2"/>
+        <circle cx="36" cy="22" r="12" fill="#f2b705"/>
+        <rect x="0" y="88" width="300" height="40" fill="#3f8ea6"/>
+        <path d="M0 96 q15 -6 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" stroke="#ffffff" stroke-width="2" fill="none" opacity=".7"/>
+        <path d="M0 112 q15 -6 30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0 t30 0" stroke="#ffffff" stroke-width="2" fill="none" opacity=".5"/>
+        <ellipse cx="86" cy="90" rx="52" ry="9" fill="#e5cf8f"/>
+        <ellipse cx="222" cy="92" rx="58" ry="10" fill="#e5cf8f"/>
+        <rect x="80" y="30" width="4" height="58" fill="#191919"/>
+        <rect x="84" y="30" width="46" height="28" fill="#27408b"/>
+        <circle cx="95" cy="38" r="2.4" fill="#fff"/><circle cx="106" cy="38" r="2.4" fill="#fff"/><circle cx="117" cy="38" r="2.4" fill="#fff"/>
+        <circle cx="95" cy="48" r="2.4" fill="#fff"/><circle cx="106" cy="48" r="2.4" fill="#fff"/><circle cx="117" cy="48" r="2.4" fill="#fff"/>
+        <rect x="196" y="34" width="4" height="56" fill="#191919"/>
+        <rect x="200" y="34" width="46" height="28" fill="#2f7d4f"/>
+        <polygon points="200,34 246,48 200,62" fill="#f2b705"/>
+        <path d="M130 74 q20 -10 40 0" stroke="#191919" stroke-width="2.5" fill="none"/>
+        <circle cx="150" cy="66" r="4" fill="#191919"/>
+      </svg>
+      <div class="tag">PACT SIGNED</div>
+      <div class="cap">Canberra &mdash; Honiara chooses Australia</div>
+    </div>
+    <div class="kicker k-ap">2 &middot; CANBERRA, AUSTRALIA &mdash; ASIA-PACIFIC</div>
+    <h2>Australia seals Solomons security pact</h2>
+    <div class="dek">Albanese and PM Wale sign a $740m treaty barring foreign bases; the 2022 China deal lapses in April.</div>
+    <div class="src">Signed Wednesday &middot; BBC</div>
+  </div>
+
+  <div class="hero">
+    <div class="art">
+      <svg viewBox="0 0 300 128" preserveAspectRatio="none">
+        <rect width="300" height="128" fill="#79a86b"/>
+        <path d="M0 44 Q150 -6 300 44 L300 0 L0 0 Z" fill="#31572c"/>
+        <rect x="18" y="14" width="264" height="9" fill="#f7f2e7" opacity=".85"/>
+        <rect x="118" y="52" width="64" height="76" fill="#d9b878"/>
+        <rect x="143" y="58" width="4" height="26" fill="#8a6d3b"/><rect x="153" y="58" width="4" height="26" fill="#8a6d3b"/>
+        <rect x="140" y="52" width="20" height="5" fill="#5d4a9e"/>
+        <g transform="rotate(38 96 96)"><rect x="90" y="58" width="11" height="52" rx="5" fill="#7a4a21"/><rect x="93" y="42" width="5" height="20" fill="#c9a227"/></g>
+        <circle cx="212" cy="52" r="11" fill="#b3231b"/>
+        <path d="M205 44 q7 8 14 0 M205 60 q7 -8 14 0" stroke="#fff" stroke-width="1.6" fill="none"/>
+        <path d="M196 30 q-30 -14 -52 -2 M222 74 q26 4 40 -8" stroke="#ffffff" stroke-width="2" fill="none" stroke-dasharray="4 4" opacity=".8"/>
+        <text x="238" y="112" font-family="Georgia, serif" font-size="30" font-weight="700" fill="#ffffff">204</text>
+      </svg>
+      <div class="tag">204 OFF 53 BALLS</div>
+      <div class="cap">Doha &mdash; ACC Asia Cup Rising Stars</div>
+    </div>
+    <div class="kicker k-me">3 &middot; DOHA, QATAR &mdash; MIDDLE EAST &middot; SPORT</div>
+    <h2>Boy of 15 hits fastest List A 200</h2>
+    <div class="dek">Vaibhav Sooryavanshi smashed 204 off 53 balls &mdash; 28 sixes, 7 fours &mdash; for India A against the UAE, reaching 200 in just 52 balls.</div>
+    <div class="src">Scorecard &middot; Cricinfo</div>
+  </div>
+</div>
+
+<style>
+  .gitem { display:block; flex:1; padding:0; border-top:none; }
+  .regions div { white-space:nowrap; }
+  .r-wo { flex:3; }
+  .grow { display:flex; gap:12px; margin-top:8px; }
+  .gitem { flex:1; }
+  .gthumb { position:relative; border:1.2px solid #191919; }
+  .gthumb svg { display:block; width:100%; height:26px; }
+  .gtag { position:absolute; bottom:3px; left:3px; background:#111; color:#fff; font-size:7.4px; font-weight:800; letter-spacing:.6px; padding:1.5px 4px; }
+  .ghead { display:flex; gap:5px; margin-top:4px; align-items:flex-start; }
+  .gnum { background:#b3231b; color:#fff; font-weight:900; font-size:11.5px; min-width:18px; height:18px; text-align:center; line-height:18px; flex:none; }
+  .ghead h3 { font-size:11.4px; line-height:1.15; }
+  .gloc { font-size:8px; font-weight:800; letter-spacing:.7px; color:#555; margin-top:3px; }
+  .gdek { font-size:9.1px; line-height:1.24; color:#333; margin-top:1px; }
+  .gsrc { font-size:8.3px; color:#6d28a8; font-style:italic; }
+</style>
+
+<div class="grow">
+  <div class="gitem">
+    <div class="gthumb"><svg viewBox="0 0 120 38" preserveAspectRatio="none"><rect width="120" height="38" fill="#20303c"/><rect x="14" y="7" width="30" height="24" fill="#3c5a74"/><rect x="18" y="11" width="22" height="3" fill="#7fd4a8"/><rect x="18" y="17" width="22" height="3" fill="#7fd4a8"/><rect x="18" y="23" width="22" height="3" fill="#e2543e"/><rect x="56" y="7" width="30" height="24" fill="#3c5a74"/><rect x="60" y="11" width="22" height="3" fill="#7fd4a8"/><rect x="60" y="17" width="22" height="3" fill="#e2543e"/><polygon points="103,8 112,24 94,24" fill="#f2b705"/><rect x="102" y="13" width="2.6" height="6" fill="#111"/><circle cx="103.3" cy="21.6" r="1.4" fill="#111"/></svg><div class="gtag">CYBERATTACK</div></div>
+    <div class="gloc">4 &middot; LANGLEY, US &mdash; AMERICAS</div>
+    <div class="ghead"><div><h3>CIA hit by attack on open-source system</h3></div></div>
+    <div class="gdek">Unclassified system breached; nothing classified taken.</div>
+    <div class="gsrc">Associated Press</div>
+  </div>
+  <div class="gitem">
+    <div class="gthumb"><svg viewBox="0 0 120 38" preserveAspectRatio="none"><rect width="120" height="38" fill="#263238"/><rect x="42" y="6" width="36" height="26" fill="#546e7a"/><rect x="50" y="12" width="20" height="14" fill="#90caf9"/><path d="M42 12 h-8 M42 19 h-8 M42 26 h-8 M78 12 h8 M78 19 h8 M78 26 h8 M52 6 V1 M60 6 V1 M68 6 V1 M52 37 v-5 M60 37 v-5 M68 37 v-5" stroke="#b0bec5" stroke-width="2"/><text x="97" y="28" font-size="20" font-weight="900" fill="#e2543e" font-family="Arial">?</text></svg><div class="gtag">NO ANSWERS</div></div>
+    <div class="gloc">5 &middot; WASHINGTON, US &mdash; AMERICAS</div>
+    <div class="ghead"><div><h3>Attorney general dodges Nvidia questions</h3></div></div>
+    <div class="gdek">Pressed over the closed investigation, Bondi declines to explain.</div>
+    <div class="gsrc">BBC</div>
+  </div>
+  <div class="gitem">
+    <div class="gthumb"><svg viewBox="0 0 120 38" preserveAspectRatio="none"><rect width="120" height="38" fill="#e8e2d2"/><rect x="16" y="10" width="18" height="22" rx="3" fill="#8a6d3b"/><rect x="16" y="16" width="18" height="5" fill="#f2b705"/><rect x="42" y="10" width="18" height="22" rx="3" fill="#8a6d3b"/><rect x="42" y="16" width="18" height="5" fill="#b3231b"/><rect x="72" y="3" width="40" height="12" fill="#191919"/><text x="76" y="13" font-size="8" font-weight="800" fill="#f2b705" font-family="Arial">5 TONNES</text></svg><div class="gtag">CONTROLLED BLAST</div></div>
+    <div class="gloc">6 &middot; IOWA, US &mdash; AMERICAS</div>
+    <div class="ghead"><div><h3>Army to blow up 5 tonnes of old explosives</h3></div></div>
+    <div class="gdek">68 barrels of degraded lead azide worry Middletown neighbours.</div>
+    <div class="gsrc">BBC</div>
+  </div>
+  <div class="gitem">
+    <div class="gthumb"><svg viewBox="0 0 120 38" preserveAspectRatio="none"><rect width="120" height="38" fill="#cfe8f2"/><polygon points="60,2 68,14 68,28 52,28 52,14" fill="#ffffff" stroke="#191919" stroke-width="1.4"/><circle cx="60" cy="17" r="3.4" fill="#b3231b"/><polygon points="52,22 44,32 52,30" fill="#e2543e"/><polygon points="68,22 76,32 68,30" fill="#e2543e"/><path d="M55 30 q5 8 10 0 l-2 6 h-6 Z" fill="#f2b705"/><circle cx="24" cy="9" r="1.8" fill="#191919"/><circle cx="98" cy="7" r="1.8" fill="#191919"/><circle cx="88" cy="14" r="1.4" fill="#191919"/></svg><div class="gtag">FIRST IN SPACE</div></div>
+    <div class="gloc">7 &middot; ISLAMABAD &mdash; ASIA-PACIFIC</div>
+    <div class="ghead"><div><h3>Pakistani astronaut flies to China's station</h3></div></div>
+    <div class="gdek">Zeeshan Ali rides Shenzhou-24 &mdash; a first for Pakistan and China.</div>
+    <div class="gsrc">BBC</div>
+  </div>
+  <div class="gitem">
+    <div class="gthumb"><svg viewBox="0 0 120 38" preserveAspectRatio="none"><rect width="120" height="38" fill="#e5cf8f"/><rect x="14" y="30" width="92" height="4" fill="#7a4a21"/><rect x="20" y="12" width="7" height="18" fill="#fff" stroke="#191919"/><rect x="38" y="12" width="7" height="18" fill="#fff" stroke="#191919"/><rect x="56" y="12" width="7" height="18" fill="#fff" stroke="#191919"/><rect x="74" y="12" width="7" height="18" fill="#fff" stroke="#191919"/><rect x="92" y="12" width="7" height="18" fill="#fff" stroke="#191919"/><polygon points="12,12 107,12 96,4 23,4" fill="#b3231b"/></svg><div class="gtag">LOYALTY PLEDGE</div></div>
+    <div class="gloc">8 &middot; SHANGHAI, CHINA &mdash; ASIA-PACIFIC</div>
+    <div class="ghead"><div><h3>Shanghai party backs Beijing amid probe</h3></div></div>
+    <div class="gdek">Leaders vow to 'see things through' as Chen Jining is probed.</div>
+    <div class="gsrc">Reuters</div>
+  </div>
+</div>
+
+<div class="grow">
+  <div class="gitem">
+    <div class="gthumb"><svg viewBox="0 0 120 38" preserveAspectRatio="none"><rect width="120" height="38" fill="#dcebf5"/><path d="M14 30 A46 46 0 0 1 106 30" stroke="#e2543e" stroke-width="5" fill="none"/><path d="M24 30 A36 36 0 0 1 96 30" stroke="#f2b705" stroke-width="5" fill="none"/><path d="M34 30 A26 26 0 0 1 86 30" stroke="#2f7d4f" stroke-width="5" fill="none"/><rect x="8" y="30" width="104" height="3" fill="#191919"/></svg><div class="gtag">SORRY, AT LAST</div></div>
+    <div class="gloc">9 &middot; CANBERRA &mdash; ASIA-PACIFIC</div>
+    <div class="ghead"><div><h3>Australia apologises to LGBTQ veterans</h3></div></div>
+    <div class="gdek">Defence minister: 'This country did not keep faith with you.'</div>
+    <div class="gsrc">Reuters</div>
+  </div>
+  <div class="gitem">
+    <div class="gthumb"><svg viewBox="0 0 120 38" preserveAspectRatio="none"><rect width="120" height="38" fill="#f7d774"/><circle cx="30" cy="19" r="11" fill="#e8862e"/><path d="M30 2 v5 M30 31 v5 M13 19 h5 M42 19 h5 M18 7 l3.5 3.5 M42 7 l-3.5 3.5" stroke="#e8862e" stroke-width="2.4"/><rect x="86" y="6" width="7" height="24" rx="3.5" fill="#fff" stroke="#191919" stroke-width="1.4"/><rect x="87.8" y="16" width="3.4" height="12" fill="#b3231b"/><circle cx="89.5" cy="33" r="3" fill="#b3231b"/></svg><div class="gtag">HEAT RECORD</div></div>
+    <div class="gloc">10 &middot; LONDON, UK &mdash; EUROPE</div>
+    <div class="ghead"><div><h3>Record 5,200 heat-linked deaths in England</h3></div></div>
+    <div class="gdek">UKHSA's estimate for this year is the highest ever recorded.</div>
+    <div class="gsrc">BBC</div>
+  </div>
+  <div class="gitem">
+    <div class="gthumb"><svg viewBox="0 0 120 38" preserveAspectRatio="none"><rect width="120" height="38" fill="#e8e2d2"/><rect x="34" y="16" width="52" height="16" fill="#fff" stroke="#191919" stroke-width="1.6"/><polygon points="34,16 86,16 78,8 42,8" fill="#b3231b"/><rect x="52" y="20" width="16" height="4" fill="#191919"/><path d="M20 10 l6 8 M100 10 l-6 8" stroke="#f2b705" stroke-width="3"/></svg><div class="gtag">SNAP ELECTION</div></div>
+    <div class="gloc">11 &middot; MADRID, SPAIN &mdash; EUROPE</div>
+    <div class="ghead"><div><h3>Spain heads for snap election as visions clash</h3></div></div>
+    <div class="gdek">Rival visions set up an early contest.</div>
+    <div class="gsrc">BBC</div>
+  </div>
+  <div class="gitem">
+    <div class="gthumb"><svg viewBox="0 0 120 38" preserveAspectRatio="none"><rect width="120" height="38" fill="#f2e3b3"/><polygon points="30,28 34,12 46,22 60,8 74,22 86,12 90,28" fill="#c9a227" stroke="#7a5b12" stroke-width="1.4"/><circle cx="34" cy="12" r="3" fill="#b3231b"/><circle cx="60" cy="8" r="3.4" fill="#b3231b"/><circle cx="86" cy="12" r="3" fill="#b3231b"/><rect x="28" y="28" width="64" height="4" fill="#7a5b12"/></svg><div class="gtag">MONARCH SUSPENDED</div></div>
+    <div class="gloc">12 &middot; LAGOS, NIGERIA &mdash; AFRICA</div>
+    <div class="ghead"><div><h3>Monarch, 92, suspended over sex claims</h3></div></div>
+    <div class="gdek">The ruler faces sexual assault allegations.</div>
+    <div class="gsrc">BBC</div>
+  </div>
+  <div class="gitem">
+    <div class="gthumb"><svg viewBox="0 0 120 38" preserveAspectRatio="none"><rect width="120" height="38" fill="#bcd6e8"/><path d="M0 30 q10 -4 20 0 t20 0 t20 0 t20 0 t20 0 t20 0" stroke="#3f8ea6" stroke-width="2.4" fill="none"/><polygon points="38,26 82,26 74,18 46,18" fill="#4c554c"/><rect x="56" y="8" width="8" height="10" fill="#4c554c"/><path d="M60 8 q2 -6 10 -6 M84 14 q8 -4 12 2" stroke="#8d99ae" stroke-width="2.4" fill="none"/></svg><div class="gtag">STRIKE</div></div>
+    <div class="gloc">13 &middot; ODESA, UKRAINE &mdash; EUROPE</div>
+    <div class="ghead"><div><h3>Russian strike kills two in Odesa</h3></div></div>
+    <div class="gdek">Three more injured, including a child.</div>
+    <div class="gsrc">Reuters</div>
+  </div>
+</div>
+
+<div class="bottom">
+  <div class="leftcol">
+    <div class="panelhead"><span class="t">WHERE IT HAPPENED</span><span class="thin">pins carry the story numbers</span></div>
+    <svg id="map" viewBox="0 0 960 440"></svg>
+    <div class="datecheck"><b>DATE CHECK</b> &mdash; Wires read to 11:20 UTC, Wednesday. Left out as other days' news: Britain's Houthi sanctions and Saudi Arabia's 2027 budget (Tue 24 Nov); Iran's war-crimes suits (Sun 22 Nov); Syria's roadblocks (Mon 23 Nov); the Qatar Emir's Berlin appeal (Fri 20 Nov); Senegal's missing migrant boat (Tue); Florida's flood rescues (Mon); Bob Woodward's 'Secrets' (Tue). Corrected from the wires' first takes: the Solomons pact was signed in Canberra, not Honiara; Panay's quake was Ms 5.1, not 5.3.</div>
+  </div>
+  <div class="rightcol">
+    <div class="panelhead"><span class="t">ALSO ON WEDNESDAY 25 NOVEMBER</span><span class="thin">23 MORE STORIES</span></div>
+    <div class="briefs">
+      <div class="bcol">
+        <div class="brief"><span class="n">14</span> <span class="loc">MANILA, PHILIPPINES</span> &mdash; Ms 5.1 quake shakes Panay island <span class="src">(PHIVOLCS)</span></div>
+        <div class="brief"><span class="n">15</span> <span class="loc">DHAKA, BANGLADESH</span> &mdash; Garment minimum wage rises to 17,000 taka <span class="src">(Reuters)</span></div>
+        <div class="brief"><span class="n">16</span> <span class="loc">BOGOR, INDONESIA</span> &mdash; 26 workers trapped in Pongkor gold mine collapse <span class="src">(Reuters)</span></div>
+        <div class="brief"><span class="n">17</span> <span class="loc">DELHI, INDIA</span> &mdash; 'Cockroach' leader barred from UK flight hits out <span class="src">(BBC)</span></div>
+        <div class="brief"><span class="n">18</span> <span class="loc">SEOUL, SOUTH KOREA</span> &mdash; Defectors tell of Christians jailed in the North <span class="src">(BBC)</span></div>
+        <div class="brief"><span class="n">19</span> <span class="loc">DELHI, INDIA</span> &mdash; Rising food costs squeeze household budgets <span class="src">(BBC)</span></div>
+        <div class="brief"><span class="n">20</span> <span class="loc">DELHI, INDIA</span> &mdash; Nayi Chetna 5.0 women's drive launches nationwide <span class="src">(PIB)</span></div>
+        <div class="brief"><span class="n">21</span> <span class="loc">MUMBAI, INDIA</span> &mdash; Sensex jumps 2.4% as IT stocks lead the rally <span class="src">(AP)</span></div>
+        <div class="brief"><span class="n">22</span> <span class="loc">SYDNEY, AUSTRALIA</span> &mdash; Policeman convicted in double-murder cover-up <span class="src">(BBC)</span></div>
+        <div class="brief"><span class="n">23</span> <span class="loc">LONDON, UK</span> &mdash; Ofgem cap to jump 26% to &pound;2,166 in January <span class="src">(Reuters)</span></div>
+        <div class="brief"><span class="n">24</span> <span class="loc">PARIS, FRANCE</span> &mdash; Sarkozy and Carla Bruni to face trial <span class="src">(BBC)</span></div>
+        <div class="brief"><span class="n">25</span> <span class="loc">GAZA CITY</span> &mdash; Israeli strike kills Hamas security chief and family <span class="src">(Reuters)</span></div>
+      </div>
+      <div class="bcol">
+        <div class="brief"><span class="n">26</span> <span class="loc">GAZA CITY</span> &mdash; Strike on Shati camp kills four, medics say <span class="src">(AJ)</span></div>
+        <div class="brief"><span class="n">27</span> <span class="loc">RAS TANURA, SAUDI ARABIA</span> &mdash; Drones attack the world's largest oil port <span class="src">(Reuters)</span></div>
+        <div class="brief"><span class="n">28</span> <span class="loc">GAZA CITY</span> &mdash; Second strike hits Karama district, one killed <span class="src">(Reuters)</span></div>
+        <div class="brief"><span class="n">29</span> <span class="loc">WEST KORDOFAN, SUDAN</span> &mdash; Army air attack kills 13, medics say <span class="src">(AJ)</span></div>
+        <div class="brief"><span class="n">30</span> <span class="loc">HARARE, ZIMBABWE</span> &mdash; Arrest warrant issued for Mugabe's son <span class="src">(BBC)</span></div>
+        <div class="brief"><span class="n">31</span> <span class="loc">CARTAGENA, COLOMBIA</span> &mdash; Last hostages freed in supermarket siege <span class="src">(Reuters)</span></div>
+        <div class="brief"><span class="n">32</span> <span class="loc">WASHINGTON, US</span> &mdash; &Aacute;brego Garc&iacute;a leaves for Spain, ending case <span class="src">(BBC)</span></div>
+        <div class="brief"><span class="n">33</span> <span class="loc">MARKETS</span> &mdash; Gold at $3,545 ahead of US inflation data <span class="src">(Reuters)</span></div>
+        <div class="brief"><span class="n">34</span> <span class="loc">DEEP SPACE</span> &mdash; ESA's Hera probe reaches the DART impact site <span class="src">(BBC)</span></div>
+        <div class="brief"><span class="n">35</span> <span class="loc">DOHA, QATAR</span> &mdash; U-17 World Cup groups wrap up; hosts face Greece <span class="src">(FIFA)</span></div>
+        <div class="brief"><span class="n">36</span> <span class="loc">HODEIDAH, YEMEN</span> &mdash; Coalition strikes ports; Houthis threaten Jeddah <span class="src">(Reuters)</span></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="sources">Sources: Reuters &middot; Associated Press &middot; BBC &middot; Al Jazeera &middot; UN News &middot; Cricinfo &middot; PHIVOLCS &middot; Press Information Bureau &middot; FIFA &mdash; every story checked against Wednesday's reporting before it earned its number.</div>
+
+<div class="footer"><span>THE MIDWEEK WORLD</span><span>WEDNESDAY 25 NOVEMBER 2026 &middot; ONE PAGE</span></div>
+
+<script>
+(function(){
+  var svg = document.getElementById('map');
+  var NS = 'http://www.w3.org/2000/svg';
+  // Land spans: [row, firstCol, lastCol] on a 96 x 48 grid, lat 79N (top) to 58S.
+  var spans = [
+    [0,14,17],[0,20,23],[0,34,39],[0,51,51],[0,57,59],
+    [1,12,25],[1,33,40],[1,50,52],[1,56,61],[1,68,74],
+    [2,9,13],[2,15,28],[2,32,41],[2,52,62],[2,64,78],[2,82,90],
+    [3,6,15],[3,16,30],[3,33,40],[3,44,44],[3,50,53],[3,54,92],
+    [4,6,16],[4,15,31],[4,36,39],[4,44,44],[4,50,54],[4,54,93],
+    [5,5,16],[5,15,31],[5,37,38],[5,44,44],[5,50,54],[5,52,93],
+    [6,14,32],[6,37,37],[6,47,48],[6,49,93],
+    [7,13,33],[7,47,48],[7,49,70],[7,60,93],[7,85,85],
+    [8,13,32],[8,47,48],[8,48,68],[8,62,92],[8,84,86],
+    [9,12,31],[9,46,66],[9,60,90],[9,84,85],
+    [10,12,30],[10,45,64],[10,62,88],[10,84,85],
+    [11,12,30],[11,44,62],[11,64,86],[11,83,84],
+    [12,12,30],[12,44,46],[12,49,50],[12,52,55],[12,60,84],[12,83,84],
+    [13,12,30],[13,44,55],[13,56,62],[13,62,82],[13,83,83],
+    [14,13,29],[14,44,58],[14,57,66],[14,66,82],
+    [15,13,28],[15,14,20],[15,43,60],[15,57,62],[15,66,73],[15,73,82],
+    [16,14,21],[16,42,61],[16,57,61],[16,66,73],[16,73,81],
+    [17,15,21],[17,42,60],[17,58,61],[17,67,73],[17,75,79],
+    [18,16,21],[18,42,59],[18,58,60],[18,67,72],[18,75,78],[18,80,81],
+    [19,17,20],[19,43,59],[19,67,71],[19,75,78],[19,80,80],
+    [20,17,19],[20,24,27],[20,44,59],[20,67,70],[20,75,77],[20,74,74],
+    [21,18,19],[21,28,33],[21,45,59],[21,68,69],[21,75,77],[21,74,80],
+    [22,27,35],[22,46,58],[22,69,69],[22,73,84],
+    [23,26,36],[23,47,57],[23,73,86],[23,87,89],
+    [24,26,37],[24,47,56],[24,74,86],[24,87,90],
+    [25,26,38],[25,48,55],[25,76,84],[25,88,90],
+    [26,27,38],[26,48,55],[26,77,83],
+    [27,27,38],[27,49,55],
+    [28,27,38],[28,49,55],[28,82,88],
+    [29,27,37],[29,49,54],[29,80,89],
+    [30,28,37],[30,50,54],[30,58,59],[30,79,90],
+    [31,28,36],[31,50,54],[31,58,58],[31,79,90],
+    [32,28,36],[32,50,53],[32,58,58],[32,79,89],
+    [33,28,35],[33,50,53],[33,79,88],
+    [34,28,35],[34,50,52],[34,80,87],
+    [35,29,34],[35,50,52],[35,80,86],
+    [36,29,34],[36,50,51],[36,81,85],[36,93,93],
+    [37,29,33],[37,81,84],[37,92,93],
+    [38,29,32],[38,92,93],
+    [39,29,31],[39,91,92],
+    [40,29,31],[41,29,30],[42,29,30],[43,29,30]
+  ];
+  var W = 960, H = 440, cw = W/96, ch = H/48;
+  for (var i=0;i<spans.length;i++){
+    var r = spans[i][0];
+    for (var c=spans[i][1]; c<=spans[i][2]; c++){
+      var dot = document.createElementNS(NS,'circle');
+      dot.setAttribute('cx', (c+0.5)*cw);
+      dot.setAttribute('cy', (r+0.5)*ch);
+      dot.setAttribute('r', 3.1);
+      dot.setAttribute('fill', '#9a917c');
+      svg.appendChild(dot);
+    }
+  }
+  // Pins: [story, lon, lat]
+  var pins = [
+    [1,30,2],[2,160,-9],[3,51.5,25.3],[4,-77.2,38.9],[5,-79.5,40.5],[6,-93.5,42],
+    [7,73.1,33.7],[8,121.5,31.2],[9,149.1,-35.3],[10,-0.1,51.5],[11,-3.7,40.4],
+    [12,3.4,6.5],[13,30.7,46.5],[14,122.5,11.3],[15,90.4,23.8],[16,106.8,-6.6],
+    [17,77.2,28.6],[18,127,40],[19,79.2,26.6],[20,75.4,30.2],[21,72.9,19.1],
+    [22,151.2,-33.9],[23,1.8,50.6],[24,2.35,48.9],[25,34.0,31.8],[26,32.7,30.4],
+    [27,50.2,26.6],[28,35.3,32.7],[29,29.5,13],[30,31.1,-17.8],[31,-75.5,10.4],
+    [32,-75.8,38.2],[33,-74,40.7],[35,52.6,24.3],[36,43.3,14.8]
+  ];
+  for (var j=0;j<pins.length;j++){
+    var n = pins[j][0], lon = pins[j][1], lat = pins[j][2];
+    var x = (lon+180)/360*W, y = (79-lat)/137*H;
+    var g = document.createElementNS(NS,'g');
+    var circ = document.createElementNS(NS,'circle');
+    circ.setAttribute('cx',x); circ.setAttribute('cy',y); circ.setAttribute('r',8.6);
+    circ.setAttribute('fill','#b3231b'); circ.setAttribute('stroke','#fff'); circ.setAttribute('stroke-width','1.2');
+    var txt = document.createElementNS(NS,'text');
+    txt.setAttribute('x',x); txt.setAttribute('y',y+3);
+    txt.setAttribute('text-anchor','middle');
+    txt.setAttribute('font-size','8.5'); txt.setAttribute('font-weight','800');
+    txt.setAttribute('fill','#fff'); txt.setAttribute('font-family','Arial, sans-serif');
+    txt.textContent = n;
+    g.appendChild(circ); g.appendChild(txt);
+    svg.appendChild(g);
+  }
+})();
+</script>
+</body>
+</html>
